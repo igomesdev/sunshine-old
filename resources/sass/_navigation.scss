@@ -1,0 +1,90 @@
+.navbar {
+  padding: 1em 0 1em 0;
+  margin: 0 0 1em 0;
+  max-width: max-content;
+}
+
+.navigation {
+  display: grid;
+  grid-template-columns: 50px 250px 720px;
+  grid-template-rows: repeat(2, minmax(min-content, 20px));
+  margin-left: 1em;
+}
+
+.navigation-bg {
+  background: rgba(139, 195, 241, 0.25);
+  margin-bottom: 1em;
+  padding: 1.5em 0 1.5em 0;
+}
+
+.navLogo {
+  grid-column: 1 / 1;
+  width: 50px;
+  align-content: center;
+
+  img {
+    height: 20px;
+    border-right: 1px solid #333;
+    padding-right: 10px;
+  }
+}
+
+.navName {
+  display: grid;
+  grid-column: 2 / 2;
+  align-content: center;
+}
+
+.navLinks {
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.navUl {
+  display: grid;
+  grid-template-columns: repeat(8, auto);
+  padding: 10px 0 0 0;
+
+    li {
+        list-style-type: none;
+    }
+}
+
+.navLogin {
+  display: grid;
+  grid-column: 3 / 3;
+}
+
+//profile dropdown menu
+.dropbtn {
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover {background-color: #ddd;}

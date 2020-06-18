@@ -1,0 +1,205 @@
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 30px;
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: 18em;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 1100px;
+}
+
+.leftPadding {
+  padding: 0 3em 0 0;
+}
+.sub-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 7em 5em;
+  margin-bottom: 2em;
+}
+
+.contentBody {
+  display: grid;
+  grid-template-columns: 150px 50px 1fr;
+  padding: 10px 0 20px 0;
+}
+
+.imageProfile {
+  grid-column: 1 / 1;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.imagePost {
+  grid-column: 1 / 1;
+
+  img {
+    width: 6em;
+    height: 6em;
+  }
+}
+
+.contentProfile {
+  grid-column: 3 / 3;
+}
+
+.image {
+  img {
+    display: inline-block;
+    height: 20em;
+  }
+}
+
+.caption {
+
+}
+
+.menuRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 5px;
+}
+
+.title {
+
+  h3 {
+    font-weight: bold;
+  }
+}
+
+.postsCount {
+
+}
+
+.address {
+  text-align: center;
+  font-size: 5px;
+}
+
+.description {
+  padding: 0;
+}
+
+.textarea {
+  resize: vertical;
+}
+
+.siteLink {
+  padding-top: 10px;
+
+  a[href] {
+    padding-left: 10px;
+  }
+}
+
+.homeDescription {
+  margin-bottom: 30px;
+}
+
+.postDescription {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 2em 0 1em 0;
+  background: aliceblue;
+}
+
+.postData {
+  display: grid;
+  justify-content: center;
+}
+
+.imageBundle {
+  display: grid;
+  justify-content: center;
+
+  img {
+    padding-bottom: .5em;
+  }
+}
+
+.camera {
+  text-align: center;
+}
+
+.fa-camera:before {
+  padding-right: 5px;
+}
+
+.textPadding {
+  padding: 2em;
+  background: aliceblue;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  text-align: center;
+
+  a {
+    color: #000000;
+  }
+
+  a:hover {
+    color: deeppink !important;
+  }
+}
+
+.shortDescription {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.city {
+  grid-column: 1/1;
+}
+
+.shortInfo {
+  display: inline-flex;
+  justify-content: space-around;
+  background: antiquewhite;
+}
+
+i {
+  margin-right: 5px;
+}
+
+.price {
+  font-size: 1.2em;
+  color: deeppink;
+}
+
+.col-form-label {
+  padding-left: 0;
+}
+
+.paginationLink {
+  display: flex;
+  margin: 1em 0 1em 0;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+  padding: 1em 0 1em 0;
+}
+
+.textNormal {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+
+  &-right {
+    justify-items: right;
+    padding-right: 5px;
+  }
+}
