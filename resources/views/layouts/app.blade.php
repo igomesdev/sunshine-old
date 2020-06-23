@@ -17,19 +17,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<div id="app">
+    <div id="app">
+        <div class="navigation-bg">
+            @include('layouts.navigation')
+        </div>
 
-    <div class="navigation-bg">
-        @include('layouts.navigation')
-    </div>
+        <div class="container">
+            @yield('content')
+        </div>
 
-    <div class="container">
-        @yield('content')
+        <div class="footer">
+            @include('layouts.footer')
+        </div>
     </div>
-
-    <div class="footer">
-        @include('layouts.footer')
-    </div>
-</div>
 </body>
 </html>
