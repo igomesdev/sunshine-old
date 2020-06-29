@@ -6,7 +6,6 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
-use Intervention\Image\facades\Image;
 
 class ProfilesController extends Controller
 {
@@ -67,15 +66,12 @@ class ProfilesController extends Controller
 
         if (request('image')) {
             $imagePath = request('image')->store('profile', 'public');
-            $image = Image::make(public_path("storage/{$imagePath}"))->fit(900, 800);
-            $image->save();
-
             $imageArray = ['image' => $imagePath];
         }
 
         auth()->user()->profile->update(array_merge(
             $data,
-      $imageArray ?? []
+            $imageArray ?? []
         ));
 
         return redirect("/profile/{$user->id}");

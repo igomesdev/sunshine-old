@@ -7,22 +7,18 @@ use Illuminate\Support\Facades\DB;
 use App\Post;
 use App\Images;
 use App\User;
-use Intervention\Image\facades\Image;
 
 class PostsController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth')->except('show');
-
     }
 
     public function index()
     {
         $users = auth()->user()->following()->pluck('profiles.user_id');
-
         $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
-
         return view('posts.index', [
                 'posts' => $posts,
             ]);
@@ -46,8 +42,6 @@ class PostsController extends Controller
         ]);
 
         $imagePath = request('image')->store('uploads', 'public');
-        $image = Image::make(public_path("storage/{$imagePath}"))->fit(900, 800);
-        $image->save();
 
         auth()->user()->posts()->create([
             'description' => $data['description'],
@@ -64,14 +58,15 @@ class PostsController extends Controller
 
     public function show(Post $post)
     {
-        $users = DB::table('posts')->pluck('posts.user_id');
-        $userPost = Post::where('user_id', $users)->latest()->paginate(9);
-        $posts = DB::table('posts')->latest()->paginate(9);
+        $postId = $post->id;
+        $userId = Post::where('id', $postId)->pluck('user_id');
+        $userPost = Post::where('user_id', $userId)->latest()->paginate(9);
+        $posts = Post::latest()->paginate(9);
 
         return view('posts.show', [
-           'post' => $post,
-           'posts' => $posts,
-           'userPost' => $userPost
+            'post' => $post,
+            'posts' => $posts,
+            'userPost' => $userPost
         ]);
     }
 
