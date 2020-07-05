@@ -70,18 +70,40 @@ class PostsController extends Controller
         ]);
     }
 
-    public function edit($post) {
+    public function edit(Post $post) {
 
-        $postId = Post::find($post);
+        //$postId = Post::find($post);
         return view('posts.edit', [
-            'postId' => $postId
+            'post' => $post
         ]);
     }
 
-    public function update($post, Request $request, $length = 24) {
+    public function update(Post $post) {
+        $postId = $post->id;
 
-        $postId = Post::find($post);
+        $data = request()->validate([
+            'description' => 'max:2100',
+            'city' => 'required',
+            'reception' => '',
+            'bathrooms' => '',
+            'rooms' => '',
+            'price' => 'required',
+            'image' => ['required', 'image']
+        ]);
 
+        if (request('image')) {
+            $imagePath = request('image')->store('uploads', 'public');
+            $imageArray = ['image' => $imagePath];
+        }
+
+        Post::where('id', $postId)->update(array_merge(
+            $data,
+            $imageArray ?? []
+        ));
+
+        return redirect('/p/' . $postId);
+
+        /*
         if($request->hasFile('img'))
         {
             $images = $request->file('img');
@@ -110,5 +132,6 @@ class PostsController extends Controller
         } else {
             return back()->with('msg', 'Please Choose any image file');
         }
+        */
     }
 }

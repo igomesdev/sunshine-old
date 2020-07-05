@@ -37,17 +37,13 @@ Route::get('/footer/about-us', 'FooterController@aboutUs');
 Route::get('/footer/contact-us', 'FooterController@contactUs');
 Route::get('/footer/guides', 'FooterController@guides');
 
-//images upload
-//Route::get('/upload/{post}/edit', 'UploadControllerreee@edit');
-//Route::post('/upload/{post}', 'UploadControllerreee@update');
-
 //post
-Route::get('/upload/{post}/edit', 'PostsController@edit');
-Route::get('/{user}', 'PostsController@index');
 Route::get('/p/create', 'PostsController@create');
 Route::get('/p/{post}', 'PostsController@show');
+Route::get('/p/{post}/edit', 'PostsController@edit');
+Route::get('/{user}', 'PostsController@index');
 Route::post('/p', 'PostsController@store');
-Route::post('/upload/{post}', 'PostsController@update');
+Route::patch('/p/{post}', 'PostsController@update');
 
 //profile
 Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.show');

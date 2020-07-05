@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="textNormal">
-                    <a href="/upload/{{ $post->id }}/edit" class="pl-3"><strong>Edit Post</strong></a>
+                    <a href="/p/{{ $post->id }}/edit" class="pl-3"><strong>Edit Post</strong></a>
                 </div>
 
                 <div class="textNormal textNormal-right">

@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('description');
-            $table->decimal('price');
+            $table->float('price');
             $table->integer('bathrooms');
             $table->integer('reception');
             $table->integer('rooms');

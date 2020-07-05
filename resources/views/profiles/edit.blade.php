@@ -74,16 +74,23 @@
 
                 <div class="form-group row">
                     <label for="description" class="col-md-4 col-form-label">Description</label>
-                    <input id="description"
-                           type="text"
-                           class="form-control @error('description') is-invalid @enderror"
-                           name="description"
-                           value="{{ old('description') ?? $user->profile->description }}"
-                           autocomplete="description" autofocus>
+
+                    <textarea id="description"
+                              maxlength="2000"
+                              type="text"
+                              class="form-control @error('description') is-invalid @enderror"
+                              name="description"
+                              autocomplete="description"
+                              autofocus>{{ old('description') ?? $user->profile->description }}
+                        </textarea>
+                    <p>
+                        <span id="wordCount">2000</span> Characters
+                    </p>
+
                     @error('description')
                     <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                                     <strong>{{ $message }}</strong>
+                                </span>
                     @enderror
                 </div>
 
