@@ -11041,8 +11041,7 @@ a.text-dark:focus {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   max-width: 1100px;
-  padding-bottom: 2em;
-  padding-right: 20px;
+  padding: 0 10px 20px 10px;
 }
 
 .firstCol {
@@ -11068,7 +11067,7 @@ a.text-dark:focus {
 
 .socialLinks {
   padding-bottom: 1em;
-  padding-left: 0;
+  padding-left: 10px;
 }
 
 .fa {
@@ -11143,6 +11142,12 @@ a.text-dark:focus {
   margin-bottom: 2em;
 }
 
+.container-three-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 2em;
+}
+
 .contentBody {
   display: grid;
   grid-template-columns: 150px 50px 1fr;
@@ -11162,8 +11167,8 @@ a.text-dark:focus {
 }
 
 .imagePost img {
-  width: 6em;
-  height: 6em;
+  width: 10em;
+  height: 5em;
 }
 
 .contentProfile {
@@ -11193,6 +11198,7 @@ a.text-dark:focus {
 
 .description {
   padding: 0;
+  margin-bottom: 2em;
 }
 
 .textarea {
@@ -11296,6 +11302,12 @@ i {
 .text-center {
   text-align: center;
   padding: 1em 0 1em 0;
+}
+
+.textRight {
+  display: grid;
+  justify-items: right;
+  align-items: center;
 }
 
 .textNormal {

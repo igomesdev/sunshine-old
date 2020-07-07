@@ -118,25 +118,17 @@
                     @enderror
                 </div>
 
-                <div class="row pt-4">
+                <div class="row">
+                    <label for="file" class="col-md-4 col-form-label">Add Extra/More Images</label>
+                    <input type="file"
+                           class="form-control-file"
+                           id="img"
+                           name="img[]" multiple>
+                </div>
+
+                <div class="row pt-4 mb-3">
                     <button class="btn btn-primary">Update Post</button>
                 </div>
-                <!--
-                <div class="form-group row">
-                    <label for="file" class="col-md-4 col-form-label">Add Extra/More Images</label>
-                    <input id="img"
-                           type="file"
-                           name="img[]" multiple
-                           class="form-control-file">
-                </div>
-                <div style="color: red">
-                    @if(Session::has('msg'))
-                        {{ Session::get('msg') }}
-                    @endif
-                </div>
-                -->
-
-
 
             </div>
         </div>

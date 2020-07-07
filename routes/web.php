@@ -41,7 +41,7 @@ Route::get('/footer/guides', 'FooterController@guides');
 Route::get('/p/create', 'PostsController@create');
 Route::get('/p/{post}', 'PostsController@show');
 Route::get('/p/{post}/edit', 'PostsController@edit');
-Route::get('/{user}', 'PostsController@index');
+Route::get('/{post}', 'PostsController@index');
 Route::post('/p', 'PostsController@store');
 Route::patch('/p/{post}', 'PostsController@update');
 

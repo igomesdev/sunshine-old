@@ -6,7 +6,7 @@
             @foreach($posts as $post)
                 <div class="homeDescription">
                     <div class="image">
-                        <a href="/p/{{ $post->id }}">
+                        <a href="/{{ $post->id }}">
                             <img src="/storage/{{ $post->image }}">
                         </a>
                     </div>

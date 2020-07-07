@@ -12,16 +12,21 @@ class PostsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('show');
+        $this->middleware('auth')->except('show', 'index');
     }
 
-    public function index()
+    public function index(Post $post)
     {
-        $users = auth()->user()->following()->pluck('profiles.user_id');
-        $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
+        $postId = $post->id;
+        $userId = Post::where('id', $postId)->pluck('user_id');
+        $userPost = Post::where('user_id', $userId)->latest()->paginate(9);
+        $posts = Post::latest()->paginate(9);
+
         return view('posts.index', [
-                'posts' => $posts,
-            ]);
+            'post' => $post,
+            'posts' => $posts,
+            'userPost' => $userPost
+        ]);
     }
 
     public function create()
@@ -71,24 +76,22 @@ class PostsController extends Controller
     }
 
     public function edit(Post $post) {
-
-        //$postId = Post::find($post);
         return view('posts.edit', [
             'post' => $post
         ]);
     }
 
-    public function update(Post $post) {
+    public function update(Post $post, Request $request, $length = 24 ) {
         $postId = $post->id;
 
         $data = request()->validate([
             'description' => 'max:2100',
-            'city' => 'required',
+            'city' => '',
             'reception' => '',
             'bathrooms' => '',
             'rooms' => '',
-            'price' => 'required',
-            'image' => ['required', 'image']
+            'price' => '',
+            'image' => ['']
         ]);
 
         if (request('image')) {
@@ -101,9 +104,6 @@ class PostsController extends Controller
             $imageArray ?? []
         ));
 
-        return redirect('/p/' . $postId);
-
-        /*
         if($request->hasFile('img'))
         {
             $images = $request->file('img');
@@ -119,7 +119,7 @@ class PostsController extends Controller
 
                     $images = new Images;
                     $images->user_id = auth()->user()->id;
-                    $images->post_id = $postId->id;
+                    $images->post_id = $postId;
                     $images->name = $new_image_name;
                     $images->original_name = $image_original_name;
                     $images->path = $destination_path;
@@ -127,11 +127,8 @@ class PostsController extends Controller
                     $images->save();
                 endforeach;
             endif;
-
-            return redirect('/p/' . $postId->id);
-        } else {
-            return back()->with('msg', 'Please Choose any image file');
         }
-        */
+
+        return redirect('/p/' . $postId);
     }
 }
