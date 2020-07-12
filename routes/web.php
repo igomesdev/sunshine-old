@@ -41,6 +41,11 @@ Route::get('/footer/guides', 'FooterController@guides');
 Route::get('/p/create', 'PostsController@create');
 Route::get('/p/{post}', 'PostsController@show');
 Route::get('/p/{post}/edit', 'PostsController@edit');
+
+Route::get('/p/{post}/delete', 'PostsController@delete');
+//need to finish this functionality - delete method
+Route::post('/p/{post}/delete', 'PostsController@delete');
+
 Route::get('/{post}', 'PostsController@index');
 Route::post('/p', 'PostsController@store');
 Route::patch('/p/{post}', 'PostsController@update');

@@ -11321,3 +11321,27 @@ i {
   padding-right: 5px;
 }
 
+.buttonPrimary {
+  background-color: #4CAF50;
+  margin-right: 1em;
+  border-radius: 5px;
+  max-height: 2.5em;
+  padding: 0.5em 1em 1em 1em;
+}
+
+.alertBox {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-bottom: 2em;
+  border-radius: 20px;
+}
+
+.alertBox a {
+  text-decoration: none;
+  color: white;
+}
+

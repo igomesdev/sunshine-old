@@ -81,6 +81,17 @@ class PostsController extends Controller
         ]);
     }
 
+    public function delete(Post $post) {
+        return view('posts.delete', [
+            'post' => $post
+        ]);
+    }
+
+    public function destroy(Post $post)
+    {
+        $post->delete();
+    }
+
     public function update(Post $post, Request $request, $length = 24 ) {
         $postId = $post->id;
 

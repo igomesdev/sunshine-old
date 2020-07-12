@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="textRight">
-                    <a href="#" class="pl-3"><strong>Delete Post</strong></a>
+                    <a href="/p/{{ $post->id }}/delete" class="pl-3"><strong>Delete Post</strong></a>
                 </div>
             </div>
 
