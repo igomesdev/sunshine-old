@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Post;
 use App\Images;
 use App\User;
+use App\Profile;
 
 class PostsController extends Controller
 {
@@ -82,6 +83,7 @@ class PostsController extends Controller
     }
 
     public function delete(Post $post) {
+
         return view('posts.delete', [
             'post' => $post
         ]);
@@ -89,7 +91,11 @@ class PostsController extends Controller
 
     public function destroy(Post $post)
     {
+        $postId = $post->id;
+        $post = Post::find($postId);
         $post->delete();
+
+        return redirect('/profile/' . auth()->user()->id);
     }
 
     public function update(Post $post, Request $request, $length = 24 ) {

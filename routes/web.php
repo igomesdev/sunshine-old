@@ -43,8 +43,7 @@ Route::get('/p/{post}', 'PostsController@show');
 Route::get('/p/{post}/edit', 'PostsController@edit');
 
 Route::get('/p/{post}/delete', 'PostsController@delete');
-//need to finish this functionality - delete method
-Route::post('/p/{post}/delete', 'PostsController@delete');
+Route::delete('/p/{post}/delete', 'PostsController@destroy')->name('post.destroy');;
 
 Route::get('/{post}', 'PostsController@index');
 Route::post('/p', 'PostsController@store');

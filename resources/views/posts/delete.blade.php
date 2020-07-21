@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="/p/{{ $post->id }}" enctype="multipart/form-data" method="post" name="frm" >
-        @csrf
+    <form action="/p/{{ $post->id }}/delete" enctype="multipart/form-data" method="post">
         @method('DELETE')
+        @csrf
 
         <div class="row">
                 <div class="post">
