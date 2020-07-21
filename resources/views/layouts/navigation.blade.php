@@ -29,6 +29,10 @@
                                 </li>
                             @endif
                             @else
+                            
+                            <!-- Admin -->
+                            <a href="/users">Admin</a>
+
                                 <div class="dropdown nav-link">
                                     <div class="dropdown-toggle">{{ Auth::user()->username }}</div>
                                     <div class="dropdown-content">

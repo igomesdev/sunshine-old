@@ -27,6 +27,9 @@ Route::post('follow/{user}', 'FollowsController@store');
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 
+//users
+Route::get('/users', 'UsersController@index');
+
 //legal
 Route::get('/legal/cookie-policy', 'legalController@cookiePolicy');
 Route::get('/legal/privacy-policy', 'legalController@privacy');
@@ -53,3 +56,5 @@ Route::patch('/p/{post}', 'PostsController@update');
 Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.show');
 Route::get('/profile/{user}/edit', 'ProfilesController@edit')->name('profile.edit');
 Route::patch('/profile/{user}', 'ProfilesController@update')->name('profile.update');
+
+

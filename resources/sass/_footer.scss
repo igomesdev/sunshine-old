@@ -1,7 +1,9 @@
 .footer {
+  //position: absolute;
+  bottom: 0;
   background: #D3D3D3;
   padding-top: 2em;
-  max-width: 100%;
+  width: 100%;
 
   li {
     list-style-type: none;
